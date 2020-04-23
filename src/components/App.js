@@ -2,12 +2,13 @@
 
 import React from 'react';
 import { GlobalStyles } from './GlobalStyles';
-import Router from './Router';
+import Layout from './Layout';
+
 function App() {
   return (
     <>
       <GlobalStyles />
-      <Router />
+      <Layout />
     </>
   );
 }
