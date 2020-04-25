@@ -19,7 +19,7 @@ const Nav = styled.nav`
   height: 100%;
   padding: 0 16px;
   box-sizing: border-box;
-  background-color: #24272b;
+  background-color: ${palette.gray1};
 `;
 
 const ListUl = styled.ul`
@@ -29,7 +29,7 @@ const ListUl = styled.ul`
 `;
 
 const List = styled.li`
-  ${(props) => console.log(props.path)}
+  /* ${(props) => console.log(props.path)} */
   /* ${(props) => {
     if (props.path) {
       return css`
@@ -47,7 +47,7 @@ const List = styled.li`
 `;
 
 const Header = (props) => {
-  console.log(props);
+  // console.log(props);
   return (
     <>
       <HeaderBox>

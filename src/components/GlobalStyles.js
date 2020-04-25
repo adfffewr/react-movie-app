@@ -16,4 +16,6 @@ export const GlobalStyles = createGlobalStyle`
 export const palette = {
   white: '#fff',
   black: '#000',
+  gray1: '#24272b',
+  gray2: '#272c34',
 };
