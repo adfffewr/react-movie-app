@@ -1,8 +1,8 @@
 // Header.js
 
 import React from 'react';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import styled, { css } from 'styled-components';
+import { Link, withRouter } from 'react-router-dom';
 import { palette } from './GlobalStyles';
 
 const HeaderBox = styled.header`
@@ -29,24 +29,34 @@ const ListUl = styled.ul`
 `;
 
 const List = styled.li`
+  ${(props) => console.log(props.path)}
+  /* ${(props) => {
+    if (props.path) {
+      return css`
+        border-bottom: 1px solid red;
+      `;
+    }
+  }} */
   a {
     color: ${palette.white};
     text-decoration: none;
     display: block;
     padding: 0 10px;
+    opacity: ${(props) => (props.path ? 1 : 0.5)};
   }
 `;
 
-const Header = () => {
+const Header = (props) => {
+  console.log(props);
   return (
     <>
       <HeaderBox>
         <Nav>
           <ListUl>
-            <List>
+            <List path={props.location.pathname === '/'}>
               <Link to="/">Movies</Link>
             </List>
-            <List>
+            <List path={props.location.pathname === '/search'}>
               <Link to="/search">Search</Link>
             </List>
           </ListUl>
@@ -56,4 +66,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default withRouter(Header);
