@@ -48,16 +48,23 @@ const Title = styled.h3`
   color: ${palette.white};
 `;
 
-const ItemList = () => {
+const ItemList = (props) => {
   return (
     <>
       <ItemContainer>
-        <Link to="/">
+        <Link to={`/movie/${props.data.id}`}>
           <ImageBox>
-            <img src={popcorn} alt="팝콘" />
+            {props.data.backdrop_path ? (
+              <img
+                src={`https://image.tmdb.org/t/p/w300${props.data.backdrop_path}`}
+                alt="이미지"
+              />
+            ) : (
+              <img src={popcorn} alt="팝콘" />
+            )}
           </ImageBox>
           <TitleBox>
-            <Title>영화제목</Title>
+            <Title>{props.data.title}</Title>
           </TitleBox>
         </Link>
       </ItemContainer>

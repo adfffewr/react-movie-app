@@ -29,7 +29,6 @@ const ListUl = styled.ul`
 `;
 
 const List = styled.li`
-  /* ${(props) => console.log(props.path)} */
   /* ${(props) => {
     if (props.path) {
       return css`

@@ -1,7 +1,8 @@
 // HomePage.js
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { movieGet } from '../api';
 import ItemList from '../components/ItemList';
 
 const ListBox = styled.ul`
@@ -23,24 +24,26 @@ const List = styled.li`
 `;
 
 const HomePage = () => {
+  const [lists, setLists] = useState('');
+  const getList = async () => {
+    const res = await movieGet();
+    console.log(res);
+    setLists(res.data.results);
+  };
+  useEffect(() => {
+    getList();
+  }, []);
+  console.log(lists);
+
   return (
     <>
       <ListBox>
-        <List>
-          <ItemList />
-        </List>
-        <List>
-          <ItemList />
-        </List>
-        <List>
-          <ItemList />
-        </List>
-        <List>
-          <ItemList />
-        </List>
-        <List>
-          <ItemList />
-        </List>
+        {lists.length >= 1 &&
+          lists.map((data) => (
+            <List key={data.id}>
+              <ItemList data={data} />
+            </List>
+          ))}
       </ListBox>
     </>
   );
