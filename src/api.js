@@ -9,7 +9,16 @@ export const movieGet = () => {
   return axios.get('/movie/now_playing', {
     params: {
       api_key: 'a992d1fae6c06b990f53908e421ee199',
-      language: 'en-US',
+      language: 'ko',
+    },
+  });
+};
+
+export const detailGet = (id) => {
+  return axios.get(`/movie/${id}`, {
+    params: {
+      api_key: 'a992d1fae6c06b990f53908e421ee199',
+      language: 'ko',
     },
   });
 };

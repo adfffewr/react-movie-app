@@ -27,13 +27,11 @@ const HomePage = () => {
   const [lists, setLists] = useState('');
   const getList = async () => {
     const res = await movieGet();
-    console.log(res);
     setLists(res.data.results);
   };
   useEffect(() => {
     getList();
   }, []);
-  console.log(lists);
 
   return (
     <>
