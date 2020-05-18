@@ -22,3 +22,13 @@ export const detailGet = (id) => {
     },
   });
 };
+
+export const movieSearch = (text) => {
+  return axios.get(`/search/movie`, {
+    params: {
+      api_key: 'a992d1fae6c06b990f53908e421ee199',
+      language: 'ko',
+      query: encodeURIComponent(text),
+    },
+  });
+};

@@ -1,12 +1,12 @@
 // Search.js
 
 import React from 'react';
-import styled from 'styled-components';
+import SearchPage from '../containers/SearchPage';
 
 const Search = () => {
   return (
     <>
-      <div>Search</div>
+      <SearchPage />
     </>
   );
 };
